@@ -1,7 +1,11 @@
 .thumbnail {
   min-height: 380px;
+  max-height: 404px;
 }
 
+.thumbnail itemlist {
+  min-height: 380px;
+}
 .label {
   display: inline-block;
 }

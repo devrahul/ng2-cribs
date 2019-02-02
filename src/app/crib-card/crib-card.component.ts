@@ -1,6 +1,6 @@
-import { by } from 'protractor';
+
 import { Component, Input } from '@angular/core';
-import { Crib } from './../crib';
+import { ICribItems } from './../model/interfaces/crib';
 
 @Component({
   selector: 'app-crib-card',
@@ -9,7 +9,8 @@ import { Crib } from './../crib';
 })
 export class CribCardComponent {
 
-  @Input('crib') crib: Crib;
+  @Input('crib') crib: ICribItems[];
+  @Input('render') render: any;
 
   constructor() {}
 

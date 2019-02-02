@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule,NgForm}   from '@angular/forms';
 import { CribsService } from './../services/cribs.service';
 import { UtilService } from './../services/util.service';
 
@@ -22,6 +22,7 @@ export class AddListingFormComponent implements OnInit {
   }
 
   onCribSubmit(data) {
+    console.log(data);
     this.cribsService.addCrib(data);
     this.newCribForm.reset();
   }

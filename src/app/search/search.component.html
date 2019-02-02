@@ -1,0 +1,128 @@
+<div class="row">
+   <div class="col-sm-12">
+    <div class="panel-default">
+        <div class="panel-heading">
+            <h4>Random User Listing</h4>
+          </div>
+
+      <div class="panel-body">
+        <div class="col-sm-4">
+          <label for="sort-field">Sort By</label>
+          <select
+            class="form-control"
+            name="sort-field"
+            id="sort-field"
+            [(ngModel)]="sortField">
+            <option
+              *ngFor="let fieldValue of sortFields"
+              [value]="fieldValue === field">
+                {{field}}
+              </option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <label for="sort-field">Show Records</label>
+          <div>
+            <select
+              class="form-control"
+              name="limit-field"
+              id="limit-field"
+              [(ngModel)]="limitField">
+              <option
+                *ngFor="let field of limitField"
+                [value]="field" >
+                  {{field}}
+                </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="notification">
+                <span>There's new data available. Click to reload the data.</span>
+                <button mat-raised-button color="accent" (click)="update$.next()">
+                  <div class="flex-row">
+                    cached
+                    UPDATE
+                  </div>
+                </button>
+              </div>
+        </div>
+
+
+           <!--<div class="col-sm-4">
+                <label for="sort-field">Display As</label>
+                <div>
+          <button
+              class="btn btn-md btn-primary" [ngClass] ="{'btn btn-md btn-primary' : isAllowDisplayType == 'grid'}"
+              (click)="renderDisplay('grid')">
+                Grid
+            </button>
+
+            <button
+              class="btn btn-md btn-primary" [ngClass] ="{'btn btn-md btn-primary' : isAllowDisplayType == 'list'}"
+              (click)="renderDisplay('list')">
+                List
+            </button>
+          </div>
+        </div>-->
+        <!--<div class="col-sm-4">
+          <button class="btn btn-primary btn-md"   [ngClass] ="btn-success" (click)="renderCribs('grid')">Grid</button>
+          <button class="btn btn-primary btn-md"
+          (click)="renderCribs('list')">List</button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="loading" *ngIf="loading">Loading...</div>
+      <div class="panel panel-default">
+        <div class="panel panel-body">
+          <form #searchForm = "ngForm" novalidate>
+          <!--<div class="form-group col-sm-3">
+            <label for="sort-field">Show Records</label>
+            <select
+              class="form-control"
+              name="limit-field"
+              id="limit-field"
+              [(ngModel)]="limitField" (change)="searchUserBylimit($event, limit)" #limit = "ngModel">
+              <option
+                *ngFor="let field of limitField"
+                [value]="field" >
+                  {{field}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="sort-field">&nbsp;</label>
+            <button class="btn btn-success btn-md" (click)="addNewUser()">Add New User</button>
+        </div>
+
+        <div class="form-group col-sm-2">
+            <input type="text" name="searchbox" id="searchbox" [(ngModel)]="searchField"
+                placeholder="search any user by name or email"
+                (keydown) ="searchUserBy($event)" pattern="[a-zA-Z]+" />
+               <button class="btn btn-md btn-primary listing-button btn-lg" >Search</button>
+          </div>-->
+          <div *ngIf="errors">
+            <br>
+            <div class="col-sm-12">
+            <div class="alert alert-warning">
+              <p><strong>Failed to load resource: net::ERR_INTERNET_DISCONNECTED<br>
+              </strong>
+              The server was unable to process the request due to an internal error,
+For more information about the error, either API Server is down that is not able to process data or either you internet connection is too slow , if API Server is down then our team is inspecting the outage as soon as possible, once it is up , we would notify you soon ..</p>
+            </div>
+          </div>
+          </div>
+        <div class="label label-primary" *ngIf="searchFieldValue">
+          <label for="sort-field">Search Results : by </label>
+          <div class="label label-success">{{searchFieldValue}}</div>
+        </div>
+          <div *ngFor="let randomUser of userObject | async">
+              <app-random-user [user]="randomUser" class="col-sm-3"></app-random-user>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+</div>

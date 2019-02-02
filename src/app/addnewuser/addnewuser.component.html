@@ -1,0 +1,880 @@
+<div class="row">
+	<div class="panel panel-primary">
+<div id="main" class="col-md-12">
+    <div class="col-md-12 nopadding hybrid-title-wrapper">
+        <div class="col-md-6 nopadding">
+            <h1>Manage User Settings</h1>
+        </div>
+        <div class="col-md-6 nopadding">
+            <button class="hybrid-green-btn-sm pull-right" data-toggle="modal" data-target=".add-user-modal" (click)="showModal()">+ ADD A NEW USER</button>
+            <div #modal class="modal fade add-user-modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+                <div class="modal-dialog" role="document" style="display: block">
+                    <form name="tollUserForm" method="post" id="tollUserForm">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                           <h2 class="modal-title text-uppercase text-center" id="gridSystemModalLabel">ADD A NEW USER</h2>
+                        </div>
+                        <div class="modal-body overflowFix">
+                            <div class="col-md-8">
+                                <label for="username" class="mandatory">Email address</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrEmail" name="usrEmail" placeholder="Enter email address"
+                                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                    required 
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-md-6"> 
+                                <label for="username" class="mandatory">First name</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrFirstName" name="usrFirstName" placeholder="First name">
+                                </div>
+                                <label for="phonenumber"> Phone</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrPhoneNumber" name="usrPhoneNumber" placeholder="e.g. 412 345 678"
+                                    pattern="[0-9]+" 
+                                    required 
+
+                                    />
+                                </div>
+                                <label for="address">Address Line 1</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrAddress" name="usrAddress" placeholder="Enter address 1
+
+                                    ">
+                                </div>
+                                <label for="suburb">Suburb</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrSuburb" name="usrSuburb" placeholder="Enter Suburb">
+                                </div>
+                                <label for="postcode">Postcode</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrPostcode" name="usrPostcode" 
+                                    placeholder="Enter Postcode" 
+                                    pattern="[0-9]+" 
+                                    />
+                                </div>
+                                <button class="hybrid-green-btn full-width text-uppercase text-center" id="saveTollUserData" name="saveTollUserData" >Save Details</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastname">Last name</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrLastName" name="usrLastName" placeholder="Last name" 
+                                    pattern="[a-zA-Z]+">
+                                </div>
+                                <label for="Country" class="mandatory">Country</label>
+                                <div class="input-label-grp">
+                                    <div class="custom-dropdown required" id="countrySelector">
+                                        <label class="label-wrapper">
+                                    <input type="hidden" name="selectCountry" id="selectCountry" />
+                                    <input type="text" class="current-selected" id="countryName" autocomplete="off" name="placeholder-country"  readonly="readonly" value="" tabindex="0" />
+                                    <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                    </label>
+                                    <div class="dropdown-list">
+                                        <ul id="selectCountryAppend" class="dropdown-list-ul">
+                                        </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                                <label for="address2">Address Line 2</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrAddress2" name="usrAddress2" placeholder="Enter Address">
+                                </div>
+                                <label for="address">State</label>
+                                <div class="input-label-grp">
+                                    <input type="text" id="usrState" name="usrState" placeholder="Enter State">
+                                </div>
+                                <div class="select-label-grp">
+                                    <label for="Security-lavel">Security Level</label>
+                                    <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                        <div class="label-wrapper">
+                                            <input type="hidden" name="usrSecurityLevel" id="usrSecurityLevel" value="">
+                                            <div class="current-selected" contenteditable="true" tabindex="0">Choose Security Level</div>
+                                            <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                        </div>
+                                        <div class="dropdown-list">
+                                            <ul class="dropdown-list-ul">
+                                                <li>
+                                                    <div>Business Admin</div>
+                                                </li>
+                                                <li>
+                                                    <div>Toll User</div>
+                                                </li>
+                                                <li>
+                                                    <div>System Admin</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-12">
+            <div class="col-md-8 nopadding">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar scelerisque lacus, vel fermentumdolor
+                    efficitur non. Praesent bibendum imperdiet quam nec scelerisque. Nam vel lacinia tortor. Seddignissim
+                    condimentum malesuada. Duis sodales mollis augue vitae pulvinar. Nullam vitae tristique ante.</p>
+            </div>
+            <div class="col-md-4 nopadding">&nbsp;</div>
+            <div class="col-md-12 nopadding">
+                <aside class="col-md-3 nopadding">
+                    <div class="sidebar-wrapper">
+                        <h3 id="user-management">User management <i class="ico-arrow-down-green rotate-up"></i></h3>
+                        <div class="hybrid-sidebox">
+                            <strong>View user and account details</strong>
+                            <p>Please choose your account and state to approve a user to your business account.</p>
+                        </div>
+                        <div class="hybrid-user-detail-search-frm user-management">
+                            <form action="#" class="hybrid-sidebox float-fix">
+                                <div class="col-md-12 nopadding">
+                                    <label for="username">User ID/Username</label>
+                                    <div class="input-label-grp">
+                                        <input type="text" id="username" name="username" class="hybrid-input" placeholder="Enter your username">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 nopadding">
+                                    <label for="acc-details">
+                                    Account details
+                                </label>
+                                    <div class="input-label-grp">
+                                        <input type="text" id="acc-details" name="acc-details" class="hybrid-input" placeholder="Enter your account code">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 nopadding">
+                                    <div class="select-label-grp">
+                                        <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                            <div class="hybrid-dd label-wrapper">
+                                                <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                <div class="current-selected" contenteditable="true" tabindex="0">Choose Business Unit</div>
+                                                <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                            </div>
+                                            <div class="dropdown-list">
+                                                <ul class="dropdown-list-ul">
+                                                    <li>
+                                                        <div>Business-unit 01</div>
+                                                    </li>
+                                                    <li>
+                                                        <div>Business-unit 02</div>
+                                                    </li>
+                                                    <li>
+                                                        <div>Business-unit 03</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 nopadding">
+                                    <div class="col-md-6 nopadding">
+                                        <div class="select-label-grp select-label-grp-sm">
+                                            <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                                <div class="hybrid-dd label-wrapper">
+                                                    <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                    <div class="current-selected" contenteditable="true" tabindex="0">Access</div>
+                                                    <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                                </div>
+                                                <div class="dropdown-list">
+                                                    <ul class="dropdown-list-ul">
+                                                        <li>
+                                                            <div>Business-unit 01</div>
+                                                        </li>
+                                                        <li>
+                                                            <div>Business-unit 02</div>
+                                                        </li>
+                                                        <li>
+                                                            <div>Business-unit 03</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 nopadding">
+                                        <div class="select-label-grp select-label-grp-sm pull-right">
+                                            <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                                <div class="hybrid-dd label-wrapper">
+                                                    <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                    <div class="current-selected" contenteditable="true" tabindex="0">Status</div>
+                                                    <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                                </div>
+                                                <div class="dropdown-list">
+                                                    <ul class="dropdown-list-ul">
+                                                        <li>
+                                                            <div>Business-unit 01</div>
+                                                        </li>
+                                                        <li>
+                                                            <div>Business-unit 02</div>
+                                                        </li>
+                                                        <li>
+                                                            <div>Business-unit 03</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <h3 id="customer-management">customer management <i class="ico-arrow-down-green"></i></h3>
+                        <div class="hybrid-sidebox float-fix">
+                            <strong>View customer</strong>
+                            <p>View customer account and details.</p>
+                            <div class="col-md-12 nopadding customer-management hidden" id="cust-search">
+                                <label for="cust_acc_no">Customer account number</label>
+                                <div class="input-label-grp">
+                                    <input type="text" name="cust_acc_no" id="cust_acc_no" placeholder="Enter your account number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 nopadding">
+                            <button class="hybrid-green-btn full-width">Search</button>
+                        </div>
+
+                    </div>
+                </aside>
+                <section class="col-md-9 nopadding RHS-pane">
+                    <article>
+                        <div class="col-md-12 nopadding">
+                            <h3 id="user-management-table">User management</h3>
+                            <i class="ico-arrow-white-down rotate-90 rotate-0"></i>
+                        </div>
+                        <div class="col-md-12 nopadding">
+                            <div class="table-wrapper user-management-table">
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-3 nopadding table-head"><strong>User name</strong></div>
+                                    <div class="col-md-3 nopadding table-head"><strong>full name</strong></div>
+                                    <div class="col-md-3 nopadding table-head"><strong>access</strong></div>
+                                    <div class="col-md-3 nopadding table-head"><strong>status</strong></div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-3 nopadding table-col">Testing 02</div>
+                                    <div class="col-md-3 nopadding table-col">Name Name</div>
+                                    <div class="col-md-3 nopadding table-col">Standard</div>
+                                    <div class="col-md-3 nopadding table-col">Approved</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row more-detail-row hidden">
+                                    <div class="col-md-6 nopadding table-col-block">
+                                        <ul>
+                                            <li><strong>CUSTOMER DETAILS</strong></li>
+                                            <li><strong>ACCOUNT STATUS</strong></li>
+                                            <li><strong>Status:</strong> Approved</li>
+                                            <li><strong>Security level:</strong> Normal User</li>
+                                            <li><strong>Allow Financial Access:</strong> N</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 nopadding table-col-block">
+                                        <ul>
+                                            <li>View and edit subscription details for this user here.</li>
+                                            <li class="edit-btn user-details" data-toggle="modal" data-target=".add-user-modal">USER DETAILS <label class="text-uppercase"><i class="ico-pencil"></i>Edit</label></li>
+                                            <li class="permissions" data-toggle="modal" data-target=".permission-modal">PERMISSIONS <label class="text-uppercase"><i class="ico-pencil"></i>Edit</label></li>
+                                        </ul>
+                                        <div class="modal fade permission-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                                        <h2 class="modal-title" id="gridSystemModalLabel">EDIT USER PERMISSIONS</h2>
+                                                        <h4 class="modal-title" id="gridSystemModalLabel">Username - Lorem Ipsum</h4>
+                                                    </div>
+                                                    <div class="modal-body overflowFix">
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">BUSINESS <span>UNIT</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/XML Connote <span>Entry</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/XML <span>Pickup</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/XML <span>POD</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/XML Rate <span>Enq</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/XML Track <span>N Trace</span></div>
+                                                            <div class="col-md-1 nopadding">B2B/WEB <span>POD</span></div>
+                                                            <div class="col-md-1 nopadding">Business <span>Financial Access</span></div>
+                                                            <div class="col-md-1 nopadding">Issue <span>Management</span></div>
+                                                            <div class="col-md-1 nopadding">Restrict Issue <span>Management</span></div>
+                                                            <div class="col-md-1 nopadding">User Reports <span>Access</span></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry1" id="con-entry1"><label for="con-entry1"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry2" id="con-entry2"><label for="con-entry2"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry3" id="con-entry3"><label for="con-entry3"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry4" id="con-entry4"><label for="con-entry4"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry5" id="con-entry5"><label for="con-entry5"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry6" id="con-entry6"><label for="con-entry6"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry7" id="con-entry7"><label for="con-entry7"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry8" id="con-entry8"><label for="con-entry8"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry9" id="con-entry9"><label for="con-entry9"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry10" id="con-entry10"><label for="con-entry10"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry1" id="con-entry1"><label for="con-entry1"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry2" id="con-entry2"><label for="con-entry2"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry3" id="con-entry3"><label for="con-entry3"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry4" id="con-entry4"><label for="con-entry4"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry5" id="con-entry5"><label for="con-entry5"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry6" id="con-entry6"><label for="con-entry6"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry7" id="con-entry7"><label for="con-entry7"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry8" id="con-entry8"><label for="con-entry8"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry9" id="con-entry9"><label for="con-entry9"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry10" id="con-entry10"><label for="con-entry10"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry1" id="con-entry1"><label for="con-entry1"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry2" id="con-entry2"><label for="con-entry2"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry3" id="con-entry3"><label for="con-entry3"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry4" id="con-entry4"><label for="con-entry4"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry5" id="con-entry5"><label for="con-entry5"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry6" id="con-entry6"><label for="con-entry6"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry7" id="con-entry7"><label for="con-entry7"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry8" id="con-entry8"><label for="con-entry8"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry9" id="con-entry9"><label for="con-entry9"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry10" id="con-entry10"><label for="con-entry10"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry1" id="con-entry1"><label for="con-entry1"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry2" id="con-entry2"><label for="con-entry2"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry3" id="con-entry3"><label for="con-entry3"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry4" id="con-entry4"><label for="con-entry4"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry5" id="con-entry5"><label for="con-entry5"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry6" id="con-entry6"><label for="con-entry6"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry7" id="con-entry7"><label for="con-entry7"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry8" id="con-entry8"><label for="con-entry8"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry9" id="con-entry9"><label for="con-entry9"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry10" id="con-entry10"><label for="con-entry10"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-2 nopadding">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry1" id="con-entry1"><label for="con-entry1"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry2" id="con-entry2"><label for="con-entry2"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry3" id="con-entry3"><label for="con-entry3"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry4" id="con-entry4"><label for="con-entry4"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry5" id="con-entry5"><label for="con-entry5"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry6" id="con-entry6"><label for="con-entry6"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry7" id="con-entry7"><label for="con-entry7"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry8" id="con-entry8"><label for="con-entry8"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry9" id="con-entry9"><label for="con-entry9"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                            <div class="col-md-1 nopadding"><input type="checkbox" name="con-entry10" id="con-entry10"><label for="con-entry10"><i class="ico-ok"></i><span>Yes</span></label><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding table-breadcrumb">
+                                                            <div class="col-md-7 nopadding">
+                                                                <div class="loader pull-right">
+                                                                    LOAD MORE
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5 nopadding">
+                                                                <ul>
+                                                                    <li>&lt;</li>
+                                                                    <li>2 of 5</li>
+                                                                    <li>&gt;</li>
+                                                                    <li>Pages</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding noborder btn-wrapper">
+                                                            <button class="hybrid-green-btn nomargin">Save permissions</button>
+                                                        </div>
+                                                        <div class="more-info-modal more-info-permission-modal hidden">
+                                                            <h3>History content <span></span></h3>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                                                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                                                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+                                                                anim id est laborum.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br class="clearfix">
+                                    <div class="col-md-6 nopadding table-col-block">
+                                        <ul>
+                                            <li><strong>Username:</strong> Doug Brooks</li>
+                                            <li><strong>Full Name:</strong> Doug Brooks</li>
+                                            <li><strong>Address:</strong> 6/55 Collinsvale Street, ROCKLEA, QLD, 4106</li>
+                                            <li><strong>Phone Number:</strong> 07 32556910</li>
+                                            <li><strong>Email Address:</strong> testing@noreply.tollgroup.com</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 nopadding table-col-block">
+                                        <ul>
+                                            <li>General Admin Access</li>
+                                            <li>Customer Management Access</li>
+                                            <li>Outage Management Access</li>
+                                            <li>Quick Login Access</li>
+                                            <li class="edit-btn user-settings" data-toggle="modal" data-target=".edit-user-settings-modal">USER SETTINGS <label class="text-uppercase"><i class="ico-pencil"></i>Edit</label></li>
+                                        </ul>
+                                        <div class="modal fade edit-user-settings-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                                        <h2 class="modal-title text-uppercase" id="gridSystemModalLabel">EDIT USER SETTINGS</h2>
+                                                        <ul>
+                                                            <li><strong>Business unit</strong></li>
+                                                            <li>Australian Institute of Marine Science</li>
+                                                            <li class="text-uppercase">TOLL ENERGY AND MARINE</li>
+                                                            <li><strong>Username:</strong> Lorem ipsum</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="modal-body overflowFix">
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">BUSINESS UNIT</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">PRPOPERTY</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">VALUE</div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">True- <small>if business allows Connote Entry</small></div>
+                                                            <div class="col-md-2 nopadding text-uppercase">
+                                                                <div class="input-label-grp">
+                                                                    <label class="switch" tabindex="0">
+                                                                    <input type="checkbox" id="at-pickup-location" class="switch-input" tabindex="-1" checked="">
+                                                                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 nopadding text-uppercase"><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">True- <small>if business allows Connote Entry</small></div>
+                                                            <div class="col-md-2 nopadding text-uppercase">
+                                                                <div class="input-label-grp">
+                                                                    <label class="switch" tabindex="0">
+                                                                    <input type="checkbox" id="at-pickup-location" class="switch-input" tabindex="-1" checked="">
+                                                                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 nopadding text-uppercase"><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">True- <small>if business allows Connote Entry</small></div>
+                                                            <div class="col-md-2 nopadding text-uppercase">
+                                                                <div class="input-label-grp">
+                                                                    <label class="switch" tabindex="0">
+                                                                    <input type="checkbox" id="at-pickup-location" class="switch-input" tabindex="-1" checked="">
+                                                                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 nopadding text-uppercase"><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">True- <small>if business allows Connote Entry</small></div>
+                                                            <div class="col-md-2 nopadding text-uppercase">
+                                                                <div class="input-label-grp">
+                                                                    <label class="switch" tabindex="0">
+                                                                    <input type="checkbox" id="at-pickup-location" class="switch-input" tabindex="-1" checked="">
+                                                                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 nopadding text-uppercase"><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding nomargin">
+                                                            <div class="col-md-4 nopadding text-uppercase">TOLL ENERGY AND MARINE</div>
+                                                            <div class="col-md-4 nopadding text-uppercase">True- <small>if business allows Connote Entry</small></div>
+                                                            <div class="col-md-2 nopadding text-uppercase">
+                                                                <div class="input-label-grp">
+                                                                    <label class="switch" tabindex="0">
+                                                                    <input type="checkbox" id="at-pickup-location" class="switch-input" tabindex="-1" checked="">
+                                                                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                                    <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 nopadding text-uppercase"><button><i class="ico-arrow-down-green"></i></button></div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding noborder btn-wrapper">
+                                                            <button class="hybrid-green-btn nomargin save-permission">Save permissions</button>
+                                                        </div>
+                                                        <div class="more-info-modal more-info-modal-save-permission hidden">
+                                                            <h3>History content <span></span></h3>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                                                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                                                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                                                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+                                                                anim id est laborum.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-col-block">
+                                        <strong>ACCOUNTS</strong> - Linked to Doug Brooks
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row linked-account-table-row">
+                                        <div class="col-md-4 nopadding table-head"><strong>Remove</strong></div>
+                                        <div class="col-md-4 nopadding table-head"><strong>Customer key</strong></div>
+                                        <div class="col-md-4 nopadding table-head"><strong>Name</strong></div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row linked-account-table-row">
+                                        <div class="col-md-4 nopadding table-col"><label><input type="checkbox" name="remove" id=""> Remove</label></div>
+                                        <div class="col-md-4 nopadding table-col">123456</div>
+                                        <div class="col-md-4 nopadding table-col">First Last Name</div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row linked-account-table-row">
+                                        <div class="col-md-4 nopadding table-col"><label><input type="checkbox" name="remove" id=""> Remove</label></div>
+                                        <div class="col-md-4 nopadding table-col">123456</div>
+                                        <div class="col-md-4 nopadding table-col">First Last Name</div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row linked-account-table-row">
+                                        <div class="col-md-4 nopadding table-col"><label><input type="checkbox" name="remove" id=""> Remove</label></div>
+                                        <div class="col-md-4 nopadding table-col">123456</div>
+                                        <div class="col-md-4 nopadding table-col">First Last Name</div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row linked-account-table-row">
+                                        <div class="col-md-4 nopadding table-col"><label><input type="checkbox" name="remove" id=""> Remove</label></div>
+                                        <div class="col-md-4 nopadding table-col">123456</div>
+                                        <div class="col-md-4 nopadding table-col">First Last Name</div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-col-block brdr5px">
+                                        <div class="col-md-6 nopadding pull-right">
+                                            <button class="hybrid-red-btn-sm text-uppercase">- remove account</button>
+                                            <button class="hybrid-green-btn-sm marginTop15 text-uppercase" data-toggle="modal" data-target=".link-account-modal">+ link account</button>
+                                        </div>
+
+                                        <div class="modal fade link-account-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                                        <h2 class="modal-title text-uppercase" id="gridSystemModalLabel">LINK ACCOUNT TO <strong>Doug Brooks</strong></h2>
+                                                        <ul>
+                                                            <li><strong>Username : Doug Brooks</strong></li>
+                                                            <li><strong>Look up account number to link to this user</strong></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="modal-body overflowFix">
+                                                        <div class="col-md-12 nopadding">
+                                                            <div class="col-md-6 nopadding">
+                                                                <div class="input-label-grp">
+                                                                    <input type="text" id="username" name="username"  placeholder="Enter your username">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 nopadding">
+                                                                <button class="hybrid-green-btn text-uppercase pull-right nomargin">View</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding tbl">
+                                                            <div class="col-md-6 nopadding text-uppercase text-center nobottomborder">
+                                                                CUSTOMER KEY
+                                                            </div>
+                                                            <div class="col-md-6 nopadding text-uppercase text-center nobottomborder">
+                                                                NAME
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding tbl">
+                                                            <div class="col-md-6 nopadding text-uppercase text-center">
+                                                                123456
+                                                            </div>
+                                                            <div class="col-md-6 nopadding text-uppercase text-center">
+                                                                FIRST LAST NAME
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 nopadding marginTop15">
+                                                            <div class="col-md-6 nopadding pull-right">
+                                                                <button class="hybrid-green-btn text-uppercase pull-right nomargin">View</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-3 nopadding table-col">Testing 02</div>
+                                    <div class="col-md-3 nopadding table-col">Name Name</div>
+                                    <div class="col-md-3 nopadding table-col">Standard</div>
+                                    <div class="col-md-3 nopadding table-col">Approved</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-3 nopadding table-col">Testing 02</div>
+                                    <div class="col-md-3 nopadding table-col">Name Name</div>
+                                    <div class="col-md-3 nopadding table-col">Standard</div>
+                                    <div class="col-md-3 nopadding table-col">Approved</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-3 nopadding table-col">Testing 02</div>
+                                    <div class="col-md-3 nopadding table-col">Name Name</div>
+                                    <div class="col-md-3 nopadding table-col">Standard</div>
+                                    <div class="col-md-3 nopadding table-col">Approved</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-breadcrumb">
+                                    <div class="col-md-7 nopadding">
+                                        <div class="loader pull-right">
+                                            LOAD MORE
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 nopadding">
+                                        <ul>
+                                            <li>&lt;</li>
+                                            <li>2 of 5</li>
+                                            <li>&gt;</li>
+                                            <li>Pages</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 nopadding">
+                            <h3 id="customer-management-table">customer management</h3>
+                            <i class="ico-arrow-white-down rotate-90"></i>
+                        </div>
+                        <div class="col-md-12 nopadding">
+                            <div class="table-wrapper customer-management-table hidden">
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-head"><strong>Customer Key</strong></div>
+                                    <div class="col-md-6 nopadding table-head"><strong>Name</strong></div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-col">123456</div>
+                                    <div class="col-md-6 nopadding table-col">First Last Name</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row more-detail-row hidden">
+                                    <div class="col-md-12 nopadding">
+                                        <div class="col-md-12 nopadding">
+                                            <div class="col-md-3">
+                                                <ul>
+                                                    <li><strong>CUSTOMER DETAILS</strong></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <ul>
+                                                    <li><strong>Customer Key:</strong> 12345</li>
+                                                    <li><strong>Full Name:</strong> Peter Davern</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 nopadding table-row">
+                                        <div class="col-md-12 nopadding table-head"> <i class="ico-arrow-down-green tollgreen rotate-up"></i> <span>Customer Accounts</span></div>
+
+                                        <div class="table-wrapper">
+                                            <div class="col-md-12 nopadding table-row">
+                                                <div class="col-md-2 nopadding table-head">Business Unit</div>
+                                                <div class="col-md-2 nopadding table-head">System</div>
+                                                <div class="col-md-2 nopadding table-head">account number</div>
+                                                <div class="col-md-1 nopadding table-head">Status</div>
+                                                <div class="col-md-2 nopadding table-head">Approver</div>
+                                                <div class="col-md-2 nopadding table-head">Access level</div>
+                                                <div class="col-md-1 nopadding table-head">Remove</div>
+                                            </div>
+                                            <div class="col-md-12 nopadding table-row">
+                                                <div class="col-md-2 nopadding table-col uppercase">Toll Ipec</div>
+                                                <div class="col-md-2 nopadding table-col uppercase">Toll works</div>
+                                                <div class="col-md-2 nopadding table-col">22778899</div>
+                                                <div class="col-md-1 nopadding table-col">Approved</div>
+                                                <div class="col-md-2 nopadding table-col uppercase">copteam</div>
+                                                <div class="col-md-2 nopadding table-col">Standard</div>
+                                                <div class="col-md-1 nopadding table-col"><label><input type="checkbox" name="" id=""> Yes </label></div>
+                                            </div>
+                                            <div class="col-md-12 nopadding table-row">
+                                                <div class="col-md-2 nopadding table-col uppercase">Toll Ipec</div>
+                                                <div class="col-md-2 nopadding table-col uppercase">Toll works</div>
+                                                <div class="col-md-2 nopadding table-col">22778899</div>
+                                                <div class="col-md-1 nopadding table-col">Approved</div>
+                                                <div class="col-md-2 nopadding table-col uppercase">copteam</div>
+                                                <div class="col-md-2 nopadding table-col">Standard</div>
+                                                <div class="col-md-1 nopadding table-col"><label><input type="checkbox" checked name="" id=""> Yes </label></div>
+                                            </div>
+                                            <div class="col-md-12 nopadding table-row">
+                                                <div class="col-md-6 nopadding pull-right removeall">
+                                                    <label><input type="checkbox" name="" id=""> Remove all </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 nopadding">
+                                            <div class="col-md-6 nopadding table-head business-acc-table-head">
+                                                <label for="addbusinessaccount">Add business account</label>
+                                                <div class="input-label-grp">
+                                                    <input type="text" id="acc-details" name="acc-details" class="hybrid-input" placeholder="Enter your account code">
+                                                </div>
+                                                <div class="select-label-grp">
+                                                    <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                                        <div class="hybrid-dd label-wrapper">
+                                                            <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                            <div class="current-selected" contenteditable="true" tabindex="0">Choose Business Unit</div>
+                                                            <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                                        </div>
+                                                        <div class="dropdown-list">
+                                                            <ul class="dropdown-list-ul">
+                                                                <li>
+                                                                    <div>Business-unit 01</div>
+                                                                </li>
+                                                                <li>
+                                                                    <div>Business-unit 02</div>
+                                                                </li>
+                                                                <li>
+                                                                    <div>Business-unit 03</div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 nopadding table-head business-acc-table-head withnolabel">
+                                                    <div class="select-label-grp">
+                                                        <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                                            <div class="hybrid-dd label-wrapper">
+                                                                <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                                <div class="current-selected" contenteditable="true" tabindex="0">Access</div>
+                                                                <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                                            </div>
+                                                            <div class="dropdown-list">
+                                                                <ul class="dropdown-list-ul">
+                                                                    <li>
+                                                                        <div>Standard</div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div>Full Financial</div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div>Third Party</div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="select-label-grp">
+                                                        <div class="custom-dropdown" id="sender" data-placeholder="sender">
+                                                            <div class="hybrid-dd label-wrapper">
+                                                                <input type="hidden" name="business-unit" id="business-unit" value="">
+                                                                <div class="current-selected" contenteditable="true" tabindex="0">Status</div>
+                                                                <a class="toggler"><i class="ico-arrow-down-green"></i></a>
+                                                            </div>
+                                                            <div class="dropdown-list">
+                                                                <ul class="dropdown-list-ul">
+                                                                    <li>
+                                                                        <div>Approved</div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div>Pending</div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div>Disabled</div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                                <div class="col-md-12 nopadding">
+                                                    <button class="hybrid-green-btn-sm pull-right text-uppercase">save settings</button>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-12 nopadding table-head"> <i class="ico-arrow-down-green tollgreen rotate-down"></i> <span id="add-account-connotes">Add Account from Connotes</span></div>
+                                        <div class="col-md-12 nopadding">
+                                            <div class="add-account-connotes">
+                                                <p class="nopadding">Enter (beginning of) a customers name or connote number to search for Account
+                                                    Numbers used in Connotes.</p>
+                                                <div class="col-md-4 nopadding connote-head">
+                                                    <label for="connote-customer-name">Customer Name</label>
+                                                    <div class="input-label-grp">
+                                                        <input type="text" name="connote-customer-name" id="connote-customer-name" placeholder="Enter customer name" class="hybrid-input">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 nopadding connote-head">
+                                                    <label for="connote-number">Connote Number</label>
+                                                    <div class="input-label-grp">
+                                                        <input type="text" name="connote-number" id="connote-number" placeholder="Enter connote number" class="hybrid-input">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 nopadding connote-head">
+                                                    <button class="hybrid-green-btn-sm text-uppercase custom-btn">View</button>
+                                                </div>
+                                                <div class="table-wrapper">
+                                                    <div class="col-md-12 nopadding table-row">
+                                                        <div class="col-md-1 nopadding table-head">Add</div>
+                                                        <div class="col-md-4 nopadding table-head">Business Unit</div>
+                                                        <div class="col-md-3 nopadding table-head">Account Number</div>
+                                                        <div class="col-md-4 nopadding table-head">Bill Customer Name</div>
+                                                    </div>
+                                                    <div class="col-md-12 nopadding table-row">
+                                                        <div class="col-md-1 nopadding table-col"><label><input type="checkbox" name="" id=""> Yes </label></div>
+                                                        <div class="col-md-4 nopadding table-col uppercase">Toll works</div>
+                                                        <div class="col-md-3 nopadding table-col">33778899</div>
+                                                        <div class="col-md-4 nopadding table-col uppercase">Freight Management Service</div>
+                                                    </div>
+                                                    <div class="col-md-12 nopadding table-row">
+                                                        <div class="col-md-1 nopadding table-col"><label><input type="checkbox" name="" id=""> Yes </label></div>
+                                                        <div class="col-md-4 nopadding table-col uppercase">Toll works</div>
+                                                        <div class="col-md-3 nopadding table-col">33778899</div>
+                                                        <div class="col-md-4 nopadding table-col uppercase">Freight Management Service</div>
+                                                    </div>
+                                                    <div class="col-md-12 nopadding table-col-block">
+                                                        <div class="col-md-6 nopadding pull-right">
+                                                            <button class="hybrid-orange-btn-sm text-uppercase">Pending</button>
+                                                            <button class="hybrid-green-btn-sm marginTop15 text-uppercase">Approved</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-col">123456</div>
+                                    <div class="col-md-6 nopadding table-col">First Last Name</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-col">123456</div>
+                                    <div class="col-md-6 nopadding table-col">First Last Name</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-col">123456</div>
+                                    <div class="col-md-6 nopadding table-col">First Last Name</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-row">
+                                    <div class="col-md-6 nopadding table-col">123456</div>
+                                    <div class="col-md-6 nopadding table-col">First Last Name</div>
+                                </div>
+                                <div class="col-md-12 nopadding table-breadcrumb">
+                                    <div class="col-md-7 nopadding">
+                                        <div class="loader pull-right">
+                                            LOAD MORE
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 nopadding">
+                                        <ul>
+                                            <li>&lt;</li>
+                                            <li>2 of 5</li>
+                                            <li>&gt;</li>
+                                            <li>Pages</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+	</div>
+</div>

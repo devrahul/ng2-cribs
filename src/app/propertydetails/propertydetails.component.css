@@ -1,0 +1,8 @@
+.thumbnails > img {
+  height: 380px;
+  width: 480px;
+}
+
+.label {
+  display: inline-block;
+}

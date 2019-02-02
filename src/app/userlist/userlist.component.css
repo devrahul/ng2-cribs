@@ -1,0 +1,8 @@
+.thumbnail {
+  min-height: 200px;
+  max-height: 404px;
+	overflow-y: hidden;
+}
+.thumbnail > img, .thumbnail a > img {
+	height: 150px;
+}

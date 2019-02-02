@@ -1,0 +1,61 @@
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h4>User Listing</h4>
+            </div>
+        <div class="panel panel-body">
+          <div *ngIf="errors">
+            <div class="col-sm-12">
+            <div class="alert alert-warning">
+              {{errors | json}}
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-3" *ngFor="let user of users | async">
+              <div class="thumbnail">
+                <img alt="post thumbnail" src="assets/images/default-user.jpg">
+                <div class="caption">
+                  <div *ngIf="!user.showOtherDetails">
+                    <h4><span class="label label-primary">User ID : {{ user.id }}</span></h4>
+                    <h4><i class="glyphicon glyphicon-tag"></i> {{ user.name }}</h4>
+                    <h4><i class="glyphicon glyphicon-exclamation-sign"></i> {{ user.email }}</h4>
+                    <hr>
+                  </div>
+                  <button class="btn btn-lg btn-primary" *ngIf="!user.showOtherDetails"
+                    (click) = "user.showOtherDetails = !user.showOtherDetails">Details</button>
+                  <hr>
+                  <div *ngIf="user.showOtherDetails">
+                      <h4><span class="label label-primary"> {{ user.id }}</span></h4>
+                    <h4>
+                      <span>
+                        <i class="glyphicon glyphicon-tag"></i> {{ user.address['street'] }}
+                      </span>
+
+                      <span>
+                        <i class="glyphicon glyphicon-tag"></i> {{ user.address['suite'] }}
+                      </span>
+
+                      <span>
+                        <i class="glyphicon glyphicon-tag"></i> {{ user.address['city']}}
+                      </span>
+
+                      <span>
+                        <i class="glyphicon glyphicon-pencil"></i> {{ user.address['zipcode']}}
+                      </span>
+
+                      <span>
+                        <i class="glyphicon glyphicon-pencil"></i> {{ user.geo['lat']}} {{ user.geo['lng']}}
+                      </span>
+                    </h4>
+                    <hr>
+                    <button class="btn btn-lg btn-danger" (click) = "user.showOtherDetails = !user.showOtherDetails">Closes</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

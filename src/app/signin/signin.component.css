@@ -1,0 +1,6 @@
+.form-control {
+	height: 51px;
+	font-size: 17px;
+}
+
+username.errors ng-invalid { border: 2px solid red; }

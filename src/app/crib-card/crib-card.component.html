@@ -1,29 +1,35 @@
+<div *ngIf="render != 'list'" class="col-sm-3">
 <div class="thumbnail">
     <img src="assets/images/{{ crib.image }}.jpg" alt="crib thumbnail">
 
   <div class="caption">
     <div *ngIf="!crib.showDetails">
       <h4>
+        <i class="glyphicon glyphicon-eye-open"></i>
+          <a [routerLink]="['/property' , crib.id]">{{ crib.name }}</a>
+      </h4>
+
+      <h4>
         <span class="label label-primary">
           {{ crib.type }}
         </span>
       </h4>
       <h3>
-        <i class="glyphicon glyphicon-tag"></i> 
+        <i class="glyphicon glyphicon-tag"></i>
           {{ crib.price | currency:'USD':true }}
       </h3>
       <h4>
-        <i class="glyphicon glyphicon-home"></i> 
+        <i class="glyphicon glyphicon-home"></i>
           {{ crib.address }}
       </h4>
 
       <hr>
 
-      <button 
-        class="btn btn-sm btn-success"
+      <button
+        class="btn btn-md btn-primary"
         *ngIf="!crib.showDetails"
         (click)="crib.showDetails = !crib.showDetails">
-        Details
+        More...
       </button>
 
     </div>
@@ -49,10 +55,55 @@
         <button
           class="btn btn-sm btn-danger"
           (click)="crib.showDetails = !crib.showDetails">
-          Close
+          Less...
         </button>
 
       </div>
     </div>
   </div>
+</div>
+</div>
+<div *ngIf="render!='grid'">
+<div class="col-sm-12">
+  <div class="item list-group-item">
+    <div *ngIf="!crib.showDetails">
+      <h4>
+        <i class="glyphicon glyphicon-eye-open"></i>
+          <a [routerLink]="['/property' , crib.id]">{{ crib.name }}</a>
+      </h4>
+
+      <h4>
+        <span class="label label-primary">
+          {{ crib.type }}
+        </span>
+      </h4>
+      <h3>
+        <i class="glyphicon glyphicon-tag"></i>
+          {{ crib.price | currency:'USD':true }}
+      </h3>
+      <h4>
+        <i class="glyphicon glyphicon-home"></i>
+          {{ crib.address }}
+      </h4>
+
+      <hr>
+
+      <h4>
+          <span class="label label-primary">
+            Beds: {{ crib.bedrooms }}
+          </span>
+          <span class="label label-primary">
+            Baths: {{ crib.bathrooms }}
+          </span>
+          <span class="label label-primary">
+            SqFt: {{ crib.area }}
+          </span>
+        </h4>
+
+        <p>{{ crib.description }}</p>
+
+    </div>
+  </div>
+  <br>
+</div>
 </div>

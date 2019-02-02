@@ -2,10 +2,9 @@
   <div class="panel-heading">
     <h4>Add a Listing</h4>
   </div>
-
   <div class="panel-body">
-
-    <form #newCribForm="ngForm" (ngSubmit)="onCribSubmit(newCribForm.value)">
+    <form #newCribForm="ngForm" (ngSubmit)="onCribSubmit(newCribForm.value)" novalidate>
+      <!--<pre>{{newCribForm.value | json}}</pre>-->
       <div class="form-group col-sm-4">
         <label for="address" class="">Address</label>
         <input
@@ -13,8 +12,11 @@
           class="form-control"
           placeholder="Address"
           name="address"
-          ngModel
+          pattern = "[a-zA-Z0-9\s-]+"
+          [(ngModel)]="newCribForm.address"
+          #address = "ngModel"
           required>
+          <div [hidden]="!address.hasError('pattern')" ngInvalid>Please enter valid address for listing</div>
       </div>
       <div class="form-group col-sm-4">
         <label for="price" class="">Price</label>
@@ -23,8 +25,11 @@
           class="form-control"
           placeholder="Price"
           name="price"
-          ngModel
+          pattern ="[0-9]+"
+          [(ngModel)]="newCribForm.price" #price="ngModel"
           required>
+          <div class="alet alert-danger" [hidden]="!price.hasError('pattern')">Price should be number</div>
+          
       </div>
       <div class="form-group col-sm-4">
         <label for="property-type" class="">Property Type</label>
@@ -34,6 +39,7 @@
           class="form-control"
           ngModel
           required>
+          <option value="">Choose Type</option>
           <option
             *ngFor="let type of propertyTypes"
             [value]="type">
@@ -48,6 +54,7 @@
           class="form-control"
           placeholder="Description"
           name="description"
+          pattern = "[a-zA-Z0-9\s]+"
           ngModel
           required>
         </textarea>
@@ -59,8 +66,14 @@
           class="form-control"
           placeholder="Beds"
           name="bedrooms"
+          pattern ="[0-9]+"
           ngModel
+          minlength="1"
+          maxlength="2"
+          [ngModel]="newCribForm.bedrooms"
+          #bedrooms = "ngModel"
           required>
+          <div class="alert alert-danger" [hidden]="!bedrooms.hasError('pattern')">only number is allowed</div>
       </div>
       <div class="form-group col-sm-2">
         <label for="baths" class="">Baths</label>
@@ -69,8 +82,14 @@
           class="form-control"
           placeholder="Baths"
           name="bathrooms"
+          pattern ="[0-9]+"
+          minlength="1"
+          maxlength="1"
           ngModel
-          required>
+          required
+          [ngModel]="newCribForm.baths" #baths = "ngModel">
+          <div class="alert alert-danger" [hidden]="!baths.hasError('pattern')">Only number is allowed</div>
+          <div class="alert alert-danger" [hidden]="!baths.hasError('minlength')">Only 1 digit is allowed</div>
       </div>
       <div class="form-group col-sm-2">
         <label for="sqft" class="">SqFt</label>
@@ -79,18 +98,18 @@
           class="form-control"
           placeholder="SqFt"
           name="area"
+          pattern ="[0-9]+"
           ngModel
           required>
       </div>
       <div class="form-group col-sm-12">
         <button
-          class="btn btn-primary listing-button"
+          class="btn btn-default listing-button btn-lg"
           type="submit"
-          ng-show="addListing">
-            Add
+          [disabled]="!newCribForm.valid" >
+            Add New Property
         </button>
       </div>
     </form>
-
   </div>  
 </div>

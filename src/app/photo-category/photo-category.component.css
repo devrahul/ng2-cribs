@@ -1,0 +1,12 @@
+.thumbnail {
+  min-height: 280px;
+  border: 0px;
+  float: left;
+}
+.thumbnail > img, .thumbnail a > img {
+	width: 200px;
+}
+
+.label {
+  display: inline-block;
+}

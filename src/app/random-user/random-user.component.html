@@ -1,0 +1,48 @@
+
+<div class="thumbnail">
+<img alt="post thumbnail" src="{{user.picture.large}}">
+<div class="caption">
+  <div *ngIf="!user.showDetails">
+  	<h5><strong>Name : </strong>{{ user.name.first | titlecase}} {{user.name.last | titlecase}}</h5>
+    <h5><strong>Email.</strong>{{user.email}}</h5>
+    <h5><strong>Phone : </strong>{{user.phone}}</h5>
+    <h5><strong>Gender: </strong>{{user.gender | titlecase}}</h5>
+    <h5><strong>dob : </strong>{{user.dob.date | date: 'long' }}</h5>
+    <h5><strong>registered : </strong>{{user.registered.date | date: 'fullDate' }}</h5>
+  </div>
+  <button class="btn btn-lg btn-primary"
+  *ngIf="!user.showDetails"
+  (click)="user.showDetails = !user.showDetails">
+  Details
+</button>
+</div>
+	<div *ngIf="user.showDetails">
+      <div class="details">
+        <h4>
+          <span class="label label-primary">
+            Street: {{user.location.street }}
+          </span>
+		  </h4>
+		  <h4>
+		    <span class="label label-primary">
+		        City: {{user.location.city }}
+		    </span>
+		  </h4>
+		  <h4>
+	          <span class="label label-primary">
+	            State: {{user.location.state }}
+	          </span>
+		  </h4>
+		  <h4>
+		    <span class="label label-primary">
+            	Postcode: {{user.location.postcode }}
+          </span>
+          </h4>
+        <button
+          class="btn btn-lg btn-danger"
+          (click)="user.showDetails = !user.showDetails">
+          Close
+        </button>
+      </div>
+</div>
+</div>

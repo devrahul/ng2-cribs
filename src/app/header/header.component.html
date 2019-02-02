@@ -1,0 +1,16 @@
+
+<nav class="navbar navbar-default" *ngIf="isLoading">
+	<div class="navbar-header">
+		<a class="navbar-brand" [routerLink]="['home']" routerLinkActive ="active" [routerLinkActiveOptions]="{exact:true}"  >Home</a>
+		<a class="navbar-brand" [routerLink]="['login']" routerLinkActive ="active " routerLinkActiveOptions="{exact:true}">Sign in</a>
+		<a class="navbar-brand" [routerLink]="['register']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Sign up</a>
+		<a class="navbar-brand" [routerLink]="['properties']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Show Cribs </a>
+		<a class="navbar-brand" [routerLink]="['addprop']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Add New Cribs </a>
+		<a class="navbar-brand" [routerLink]="['posts']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Articles </a>
+		<a class="navbar-brand" [routerLink]="['users']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Users </a>
+		<a class="navbar-brand" [routerLink]="['/photostock']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Photo Stocks</a>
+    <a class="navbar-brand" [routerLink]="['/search']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">Search Users</a>
+    <a class="navbar-brand" [routerLink]="['/video']" routerLinkActive ="active " [routerLinkActiveOptions]="{exact:true}">VIdeos</a>
+  </div>
+	<!--<quick-search *ngIf="location == '/search'"></quick-search>-->
+</nav>

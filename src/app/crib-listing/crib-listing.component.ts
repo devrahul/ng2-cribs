@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { CribsService } from './../services/cribs.service';
 import { UtilService } from './../services/util.service';
 import { SortByPipe } from '../pipes/sort-by.pipe';
-import { Crib } from './../crib';
+import { ICribItems } from './../model/interfaces/crib';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-crib-listing',
-  templateUrl: './crib-listing.component.html',
-  styleUrls: ['./crib-listing.component.css']
+  templateUrl: 'crib-listing.component.html',
+  styleUrls: ['crib-listing.component.css']
 })
 export class CribListingComponent implements OnInit {
-
-  cribs: Array<Crib> = [];
-  error: string = '';
-  sortField: string = 'price';
-  sortDirection: string = 'asc';
-  sortFields: Array<string> = [
+  cribs: Observable<ICribItems[]>;
+  error = '';
+  sortField = 'price';
+  sortDirection = 'asc';
+  renderCribDisplay = 'grid';
+  sortFields: String[] = [
     'address',
     'area',
     'bathrooms',
@@ -26,19 +29,27 @@ export class CribListingComponent implements OnInit {
 
   constructor(
     private cribsService: CribsService,
-    private utilService: UtilService
-  ) { }
+    private utilService: UtilService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.cribsService.getAllCribs()
-      .subscribe(
-        data => this.cribs = data,
-        error => this.error = error.statusText
-      );
-
-    this.cribsService.newCribSubject.subscribe(
-      data => this.cribs = [data, ...this.cribs]
-    );
+    this.cribs = this.cribsData();
+    //let data = localStorage.getItem('newCrib');
+    /*this.cribsService.newCribSubject.subscribe(
+      data => (this.cribs = [data, ...this.cribs])
+    );*/
   }
 
+  cribsData() {
+    return this.cribsService.getAllCribs();
+  }
+
+  addMoreCrib() {
+    const link = ['addprop'];
+    this.router.navigate(link);
+  }
+  renderCribs(type) {
+    this.renderCribDisplay = type;
+  }
 }

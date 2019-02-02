@@ -1,22 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
+import {
+  HttpClient
+} from '@angular/common/http';
 
-@Injectable()
+import { ICribItems } from './../model/interfaces/crib';
+import { Observable, Subject } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class CribsService {
-
   public newCribSubject = new Subject<any>();
+  private data: any;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: Http) { }
+  getAllCribs(): Observable<ICribItems[]> {
+    return this.http.get<ICribItems[]>('data/cribs.json');
+  }
 
-  getAllCribs() {
-    return this.http.get('data/cribs.json').map(res => res.json());
+  getCrib(id: number): Observable<ICribItems[]> {
+    return this.getAllCribs().pipe( map( items =>
+      items.filter(item => item.id === id))
+    );
   }
 
   addCrib(data) {
     data.image = 'default-crib';
     this.newCribSubject.next(data);
+    localStorage.setItem('newCrib', data);
   }
-
 }

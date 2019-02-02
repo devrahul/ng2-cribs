@@ -1,0 +1,23 @@
+<div *ngIf="errors">
+            <br>
+            <div class="col-sm-12">
+            <div class="alert alert-warning">
+              <p><strong>Failed to load resource: net::ERR_INTERNET_DISCONNECTED<br>
+              </strong>
+              The server was unable to process the request due to an internal error,
+For more information about the error, either API Server is down that is not able to process data or either you internet connection is too slow , if API Server is down then our team is inspecting the outage as soon as possible, once it is up , we would notify you soon ..</p>
+            </div>
+          </div>
+          </div>
+<div>
+<div class="thumbnail" *ngIf="!errors">
+    <img src="assets/images/bigstockphoto-default.jpg" alt="post thumbnail" class="img-thumbnail">
+  <div class="caption">
+    <div>
+     <button class="btn btn-md btn-primary">
+        View {{ categories.name }} detail
+      </button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>PhotoStock Category Listing</h4>
+          </div>
+      <div class="panel-body">
+      	<div *ngFor="let category of categoryData | async">
+      		<app-photo-category [categories] = "category" [errors]="error" class="col-sm-3"></app-photo-category>
+      	</div>
+      </div>
+  </div>
+</div>
+</div>
+
+

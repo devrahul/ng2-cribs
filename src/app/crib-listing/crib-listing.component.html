@@ -1,26 +1,29 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Cribs Listing</h4>
+          </div>
       <div class="panel-body">
         <div class="col-sm-4">
           <label for="sort-field">Sort By</label>
-          <select 
-            class="form-control" 
-            name="sort-field" 
-            id="sort-field" 
+          <select
+            class="form-control"
+            name="sort-field"
+            id="sort-field"
             [(ngModel)]="sortField">
-            <option 
-              *ngFor="let field of sortFields" 
+            <option
+              *ngFor="let field of sortFields"
               [value]="field">
-                {{ utilService.capitalize(field) }}
+                {{ field | titlecase }}
               </option>
           </select>
         </div>
         <div class="col-sm-4">
           <label for="sort-direction">Sort Direction</label>
           <div>
-            
-            <button 
+
+            <button
               class="btn btn-primary"
               [ngClass]="{'btn-success': sortDirection == 'asc'}"
               (click)="sortDirection = 'asc'">
@@ -36,12 +39,20 @@
 
           </div>
         </div>
+        <div class="col-sm-4">
+          <button class="btn btn-success btn-md" (click)="addMoreCrib()">Add More Listing</button>
+          <button class="btn btn-primary btn-md" (click)="renderCribs('grid')">Grid</button>
+          <button class="btn btn-primary btn-md"
+          (click)="renderCribs('list')">List</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div *ngFor="let crib of cribs | sortBy: [sortField, sortDirection]">
-    <app-crib-card [crib]="crib" class="col-sm-3"></app-crib-card>
+  <div *ngIf="renderCribDisplay">
+    <div *ngFor="let crib of cribs | async | sortBy: [sortField, sortDirection]">
+      <app-crib-card [crib]="crib" [render] ="renderCribDisplay"></app-crib-card>
+    </div>
   </div>
   <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
 </div>
